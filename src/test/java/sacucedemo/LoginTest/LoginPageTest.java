@@ -1,5 +1,6 @@
 package sacucedemo.LoginTest;
 
+import Utilities.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,12 +11,11 @@ import Pages.LoginPage.LoginPage;
 import Utilities.DriverFactory;
 import java.io.IOException;
 
-public class LoginPageTest {
+public class LoginPageTest extends TestBase {
 
  WebDriver driver= DriverFactory.getDriver();
     @Test(dataProvider = "DataProvider")
     public void verifyLoginPage (String username,String password) throws IOException {
-        driver.get("https://www.saucedemo.com/");
         LoginPage l = new LoginPage();
         l.login(username, password);
         WebElement msg=driver.findElement(By.xpath("//form/h3"));
